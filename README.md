@@ -37,3 +37,39 @@ Final Test Case Result:
 * Signal Processing: Implementing real-time standard deviation and slip observers.
 * Calibration: Tuning PID-like damping and inertia parameters to achieve system stability.
 
+graph LR
+    subgraph Controller [ECU: Terrain Response Controller]
+        direction TB
+        subgraph Input_Processing [Input Conditioning]
+            A[In_Pedal_Pct] --> B[Map_Selector]
+            C[In_V_Wheel] --> D[Jitter_Calculator_STD]
+            E[In_V_Veh] --> F[Slip_Observer]
+        end
+
+        subgraph Arbitration_Logic [Mode Arbitration & Hysteresis]
+            D --> G{_observer_logic}
+            F --> G
+            H[In_Driver_Select] --> I[Mode_Arbiter]
+            G --> I
+            I --> J[K_HYSTERESIS_Counter]
+        end
+
+        subgraph Torque_Mapping [Final Mapping]
+            J --> K[Active_Mode_Selection]
+            B --> L[1D_Interp_Table]
+            K --> L
+        end
+    end
+
+    subgraph Plant [Plant: Vehicle Physical Model]
+        M[Motor_Dynamics] --> N[Wheel_Dynamics_J_Wheel]
+        N --> O[Traction_Force_F_traction]
+        O --> P[Vehicle_Dynamics_Mass]
+    end
+
+    %% Connections
+    L -- "Out_Torque_Req" --> M
+    P -- "V_Veh" --> F
+    N -- "V_Wheel" --> D
+    N -- "V_Wheel" --> F
+
