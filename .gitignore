@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# OpenModelica / FMU Temp files
+*.fmutmp/
+*.log
+*.libs/
+build_cmake/
+
+# Local drive specific (Google Drive)
+Icon?
+.DS_Store
