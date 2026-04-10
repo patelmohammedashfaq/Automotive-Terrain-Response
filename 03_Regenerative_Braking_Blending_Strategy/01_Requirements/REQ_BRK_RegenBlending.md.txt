@@ -1,0 +1,6 @@
+•  REQ-BRK-01: The controller shall map driver brake pedal position (0-100%) to a total braking torque demand.
+•  REQ-BRK-02: The controller shall prioritize regenerative braking for initial deceleration (up to approximately 0.2g equivalent torque).
+•  REQ-BRK-03: The regenerative braking torque shall be limited by a 1D lookup table based on the Battery State of Charge (SoC).
+•  REQ-BRK-04: The controller shall smoothly blend in hydraulic friction brakes for deceleration requests exceeding the available regenerative limit.
+•  REQ-SAFE-05: To prevent actuator damage, all final output torques must be mathematically saturated (clipped) before being sent to the plant.
+
