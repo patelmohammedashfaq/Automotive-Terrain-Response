@@ -135,7 +135,7 @@ To verify the smooth arbitration between electrical regenerative braking and hyd
 ## 3. Analysis of Results
 The simulation results shown in the figure below demonstrate the controller's performance during a 70% brake pedal application with a 40% Battery SoC.
 
-![Regen Blending Verification Plot](PLOT_Regen_Blending_SoC_40.png)
+![Regen Blending Verification Plot](.\05_Verification\PLOT_Regen_Blending_SoC_40.png)
 
 ### Performance Observations:
 1. The **Regen Torque** successfully capped at the calibrated **-1500 Nm**.
