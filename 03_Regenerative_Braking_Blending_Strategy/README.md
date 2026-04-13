@@ -118,7 +118,7 @@ graph LR
 
 # MIL Verification Report: Regenerative Braking Blending
 **Project ID:** PROJ_03  
-**Status:** PASSED  
+**Status:** Partial (3 PASSED, 1 Unconclusive)  
 **Date:** 2026-04-09  
 
 ## 1. Objective
@@ -128,7 +128,7 @@ To verify the smooth arbitration between electrical regenerative braking and hyd
 | Req ID | Requirement Description | Result | Evidence |
 | :--- | :--- | :--- | :--- |
 | **REQ-BRK-01** | Map 0-100% pedal to total torque demand. | **PASS** | Demand traces black dashed line. |
-| **REQ-BRK-02** | Prioritize Regen for initial deceleration. | **PASS** | Green line (Regen) leads the braking event. |
+| **REQ-BRK-02** | Prioritize Regen for initial deceleration. | **Unconclusive** | Not tested as brake is applied suddenly scenario. |
 | **REQ-BRK-04** | Blend friction brakes when regen is limited. | **PASS** | Red line (Friction) fills the delta at t=1.0s. |
 | **REQ-SAFE-05**| Saturate all outputs to physical limits. | **PASS** | No torque exceeds K_MAX_SYSTEM_BRAKE_TRQ. |
 
